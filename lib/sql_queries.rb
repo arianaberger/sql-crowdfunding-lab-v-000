@@ -36,8 +36,8 @@ def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_th
 FROM users
 INNER JOIN pledges
 ON users.id = pledges.user_id
-ORDER BY pledges.amount
-GROUP BY users.name" 
+GROUP BY users.name
+ORDER BY pledges.amount" 
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
@@ -45,7 +45,7 @@ def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_ca
 FROM projects
 INNER JOIN pledges
 ON projects.id = pledges.project_id
-WHERE projects.category = 'music'
+WHERE projects.category = 'music' 
 ORDER BY projects.category"
 end
 
