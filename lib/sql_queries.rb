@@ -25,7 +25,7 @@ end
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
 "SELECT projects.title, (SUM(pledges.amount) - projects.funding_goal) AS goal_amount
 FROM projects
-INNER JOIN PLEDGES
+INNER JOIN pledges
 ON projects.id = pledges.project_id
 GROUP BY projects.title
 HAVING goal_amount >= 0" #I want to substract the total funding - goal and see if it's > 0
@@ -36,7 +36,7 @@ def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_th
 FROM users
 INNER JOIN pledges
 ON users.id = pledges.user_id
-ORDER BY total_pledges" #why is it just giving me one entry with the total sum of the pledge amounts?
+GROUP BY total_pledges" #why is it just giving me one entry with the total sum of the pledge amounts?
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
