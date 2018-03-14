@@ -32,11 +32,11 @@ HAVING goal_amount >= 0" #I want to substract the total funding - goal and see i
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
-"SELECT users.name, sum(pledges.amount)
+"SELECT users.name, sum(pledges.amount) AS total_pledges
 FROM users
 INNER JOIN pledges
 ON users.id = pledges.user_id
-ORDER BY users.name" #why is it just giving me one entry with the total sum of the pledge amounts?
+ORDER BY total_pledges" #why is it just giving me one entry with the total sum of the pledge amounts?
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
