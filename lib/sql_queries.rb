@@ -27,7 +27,8 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
 FROM projects
 INNER JOIN PLEDGES
 ON projects.id = pledges.project_id
-GROUP BY projects.title" #I want to substract the total funding - goal and see if it's > 0
+GROUP BY projects.title
+HAVING goal_amount >= 0" #I want to substract the total funding - goal and see if it's > 0
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
