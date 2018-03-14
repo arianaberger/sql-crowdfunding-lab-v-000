@@ -26,7 +26,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
 "SELECT projects.title, (SUM(pledges.amount) - projects.funding_goal) AS goal_amount
 FROM projects
 INNER JOIN PLEDGES
-ON project.id = pledges.project_id
+ON projects.id = pledges.project_id
 GROUP BY projects.title" #I want to substract the total funding - goal and see if it's > 0
 end
 
